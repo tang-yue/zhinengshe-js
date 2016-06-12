@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	table{border-collapse:separate;
+	      border-spacing:10px;}
+	td{width:70px;
+		height:60px;
+		border:1px solid black;
+	    text-align:center;
+	    color:white;
+	     background:black;}
+	#div1 div{width:180px;
+		border:1px solid white;
+	     background:#F0F0F0;
+	    
+          position:relative;
+          left:10px;
+           display:none;
+	      }
+	#div1{width:200px;
+		    padding:15px;
+			background:#D8D8D8;
+			margin:0 auto;
+		    }
+	.p2,.p1,big{font-weight:bold;}
+	.p2{font-size:13px;}
+	.active{background:white;color:red;}
+	
+
+	</style>
+</head>
+<body>
+<script>
+window.onload=function()
+{
+	var temp1=document.getElementById("div1");
+	var obj1=temp1.getElementsByTagName("td");
+     var obj2=temp1.getElementsByTagName("div");
+     for(var i=0;i<obj1.length;i++)
+      {   
+      	obj1[i].onclick=function()
+      	{    
+      		for(var i=0;i<obj1.length;i++)
+      		{   obj1[i].index=i;
+      			obj1[i].className='';
+      			obj2[i].style.display="none";
+      		}
+      		this.className="active";
+      		obj2[this.index].style.display="block";
+      		// alert(this.index);
+      	}
+      }
+     }
+</script>
+<div id="div1">
+<table>
+	<tr>
+		<td index="0"><big>1</big><br/>JAN</td>
+		<td index="1"><big>2</big><br/>FER</td>
+		<td index="2"><big>3</big><br/>MAR</td>
+		
+	</tr>
+	<tr>
+	    <td><big>4</big><br/>APR</td>
+	    <td><big>5</big><br/>MAY</td>
+	    <td><big>6</big><br/>JUN</td>
+
+	</tr>
+	<tr>
+	     <td><big>7</big><br/>JUL</td>
+	     <td><big>8</big><br/>AUG</td>
+	     <td><big>9</big><br/>SEP</td>
+
+	</tr>
+	<tr>
+	      <td><big>10</big><br/>OCT</td>
+	      <td><big>11</big><br/>NOV</td>
+	      <td class="active"><big>12</big><br/>DEC</td>
+
+	</tr>
+	</table>
+	<!-- <div id="div2"> -->
+	<div><p class="p1">1月活动</p>
+	<p  class="p2">1月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p>
+	</div>
+	<div><p class="p1">2月活动</p>
+	<p  class="p2">二月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p>
+	</div>
+	<div><p class="p1">3月活动</p>
+	<p  class="p2">三月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p>
+	</div>
+	<div><p class="p1">4月活动</p>
+	<p  class="p2">四月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p>
+	</div>
+	<div><p class="p1">5月活动</p>
+	<p  class="p2">五月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p>
+	</div>
+	<div><p class="p1">6月活动</p>
+	<p  class="p2">六月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p>
+	</div>
+	<div><p class="p1">7月活动</p>
+	<p  class="p2">七月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p>
+	</div>
+	<div><p class="p1">8月活动</p>
+	<p  class="p2">八月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p>
+	</div>
+	<div><p class="p1">9月活动</p>
+	<p  class="p2">九月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p>
+	</div>
+	<div><p class="p1">10月活动</p>
+	<p  class="p2">十月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p>
+	</div>
+	<div><p class="p1">11月活动</p>
+	<p  class="p2">十一月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p>
+	</div>
+	<div style="display:block;"><p class="p1">12月活动</p>
+	<p  class="p2">十二月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p>
+	</div>
+	<!-- </div> -->
+	</div>
+	<!-- <div id="div3">
+	<p class="class1">1月活动</p>
+	<p class="class2">1月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p><p class="class1">2月活动</p>
+	<p class="class2">二月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p><p class="class1">3月活动</p>
+	<p class="class2">三月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p><p class="class1">4月活动</p>
+	<p class="class2">四月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p><p class="class1">5月活动</p>
+	<p class="class2">五月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p><p class="class1">6月活动</p>
+	<p class="class2">六月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p><p class="class1">7月活动</p>
+	<p class="class2">七月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p><p class="class1">8月活动</p>
+	<p class="class2">八月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p><p class="class1">9月活动</p>
+	<p class="class2">九月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p><p class="class1">10月活动</p>
+	<p class="class2">十月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p><p class="class1">11月活动</p>
+	<p class="class2">十一月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p><p class="class1">12月活动</p>
+	<p class="class2">十二月正则表达式，应用高级表单验证技术，智能课堂。www.zhiengketang.com</p>
+	
+		
+	</div> -->
+</body>
+
+</html>
+<!-- 遇到的问题：此时div里含有两个p标签，我该如何让它们一一对应呢。我知道这只是比较简单的内容。所以它替换的内容里，一定还要自己去给文本设置样式。 感觉还是换成div比较方便。基本上差不多，好想知道用innerHTML能省多少事。要不先用div形式自己实现下。
+我又遇到了问题，就是我用标签定义了某个div的属性是none，之后我用class属性去更改了它的属性为block，按样式优先级来说，应该是完全没有问题的。但是我试了两次都没有发现原因。
+
+之后我把它加在了行间，就有效果了。我为什么会想到用class呢是因为觉得，之后用循环会方便些。所以我选择用了class。
+总感觉和创建文本节点有关。
+又发现了一个问题只要拼写出现错误，这行语句并不会被计算机忽略，即使和想要的效果无关，仍旧会影响下面的执行。
+
+写代码注意别把括号给删了。这个似乎也会没注意
+window.onload=function()
+{
+	var testdiv=document.getElementById("testdiv");
+	testdiv.innerHTML="<p>I inserted this content.</p>";
+}
+如果真的要用innerHTML改的话，只有一个p标签最好了。只有一个篇标签又该如何实现换行呢。还是没法用innerHTML，至少如果用innerHMTL在function函数里要有一堆的文本内容。
+
+再三思索，还是一个p标签好实现。但是两个就不行-->
