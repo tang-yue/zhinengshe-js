@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../styles/2.css">
+    <script type="text/javascript" src="../scripts/2.js"></script>
+</head>
+<body>
+<div id="div1">
+	<input class="active" type="button" value="教育" index="tangyue">
+	<input type="button" value="培训" index="a">
+	<input type="button" value="新闻" index="n" >
+	<input type="button" value="专栏" index="g" >
+	<div style="display:block"   >1111</div>
+	<div>2222</div>
+	<div>333</div>
+	<div>4444</div>
+</div>
+</body>
+</html>
+<!-- 关于this指代的是谁？我们可以用alert(this.value)这样一个表达式来验证。解释指当前事件发生的元素。其实我们每次不确定的时候，都可以这样来验证一下。 
+之后就是一个非常关键的问题：即我如何让点击第一个按钮的时候显示第一个div，点击第二个按钮的时候，显示第二个div。这样去一一对应。
+之后就是index叫做自定义属性。其实不管在index里写什么，最后弹出的仍旧是0,1,2,3,4,但是这是加在行间的时候才会这样。
+
+写选项卡，有条主线就是先所有的都隐藏，再把当前的显示出来。值得注意的是写的这个函数围绕的就是按钮，基本上循环也是围绕按钮。-->

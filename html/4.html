@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+window.onload=function()
+{  var temp=document.getElementById("div1");
+   var obj=temp.getElementsByTagName("input");
+    var btn1=document.getElementById("oi");
+  btn1.onclick=function()
+  { 
+  	for(var i=0;i<obj.length;i++)
+  	{ obj[i].checked=true;}
+  }
+   var btn2=document.getElementById("ol");
+  btn2.onclick=function()
+  { 
+  	for(var i=0;i<obj.length;i++)
+  	{ obj[i].checked=false;}
+  }
+   var btn3=document.getElementById("el");
+  btn3.onclick=function()
+  { 
+  	for(var i=0;i<obj.length;i++)
+  	{ if(obj[i].checked==true)
+  		{obj[i].checked=false;}
+  		else
+  		{obj[i].checked=true;}	
+  }
+}
+}
+</script>
+	 <input id="oi"  type="button" value="全选" ></br>
+ <input id="ol"  type="button" value="不选"  >
+ <input id="el"  type="button" value="反选"  >
+
+ <div id="div1">
+	<input type="checkbox"></br>
+	<input type="checkbox"></br>
+	<input type="checkbox"></br>
+	<input type="checkbox"></br>
+	<input type="checkbox"></br>
+	<input type="checkbox"></br>
+	<input type="checkbox"></br>
+	<input type="checkbox"></br>
+	<input type="checkbox"></br>
+	<input type="checkbox"></br>
+    <input type="checkbox"></br>
+	<input type="checkbox"></br>
+	<input type="checkbox"></br>
+	<input type="checkbox"></br>
+	<input type="checkbox"></br>
+	<input type="checkbox"></br>
+	</div>
+</body>
+</html>
+<!-- 在这里我发现了一个问题，此时此刻，上面也算是全局变量，唯一不同的是它的外面加了window.onload.也算是一个函数，但是window.onload里也包含了提取出来的行间事件。不只一个。在提取出来的行间事件里，也有function，也算是函数，而它完全可以调用上面的类似全局变量的变量。 -->
