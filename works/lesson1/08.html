@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+		.box {
+			background: green;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var oDiv = document.getElementsByTagName("div")[0];
+			var oBtn = document.getElementById("btn");
+			oBtn.onclick = function () {
+				oDiv.className = "box";                // Id>class>标签 优先级顺序
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<input id="btn" type="button" value="变背景颜色">
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			border: 1px solid #aaa;
+			width: 200px;
+			height: 200px;
+		}
+		#div1 {
+			background: red;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var oDiv1 = document.getElementById("div1");
+			var oDiv2 = document.getElementById("div2");
+			var oBtn1 = document.getElementById("btn1");
+			var oBtn2 = document.getElementById("btn2");
+			oBtn1.onclick = function () {
+				alert(oDiv1.style.background);
+			}
+			oBtn2.onclick = function () {
+				alert(oDiv2.style.background);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<input id="btn1" type="button" value="无法弹出背景色"><br/>
+	</div>
+	<div id="div2" style="background: green;">
+		<input id="btn2" type="button" value="可以弹出背景色">
+	</div>
+</body>
+</html>

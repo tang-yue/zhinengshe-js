@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="pifu1.css">
+</head>
+	<script>
+		var oLink = document.getElementsByTagName("link")[0];    // 此时我把变量名定义在函数的外边，仍旧没有问题，但是不推荐这种做法，比如更改div的style属性时就会出错。
+		function toYellow() {
+			oLink.href="pifu1.css";
+		}
+		function toBlack() {
+			oLink.href="pifu2.css";
+		}
+	</script>
+<body>
+	<div id="div1" onclick="toYellow()">皮肤1</div>
+	<div id="div2" onclick="toBlack()">皮肤2</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		a {
+			text-decoration: none;
+			color: #000000;
+		}
+		div {
+			width: 100px;
+			height: 100px;
+			border: 1px solid #aaa;
+			display: none;
+		}
+	</style>
+	<script>
+	    // 不要加window.onload,如果加了则会导致move，out函数没有定义,这是因为会先执行body里的代码。
+
+		function move() {
+	    	var oDiv = document.getElementsByTagName("div")[0];
+			oDiv.style.display = "block";
+		}
+		function out() {
+	    	var oDiv = document.getElementsByTagName("div")[0];
+			oDiv.style.display = "none";
+		}
+	</script>
+</head>
+<body>
+	<a href="#" onmouseover="move()" onmouseout="out()">鼠标提示框</a>
+	<div><p>鼠标移进提示消息，移出消失</p></div>
+</body>
+</html>

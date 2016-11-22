@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background: red;
+			float: left;
+			margin: 10px;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var oDiv = document.getElementsByTagName('div');
+			var oDiv1 = document.getElementById('div1');
+			var oDiv2 = document.getElementById('div2');
+			for (var i = 0; i < oDiv.length; i++) {
+				oDiv[i].timer = null;
+				oDiv1.onmouseover = function () {
+					startMove(this, 'width', 400);
+				}
+				oDiv1.onmouseout = function () {
+					startMove(this, 'width', 200);
+				}
+				oDiv2.onmouseover = function () {
+					startMove(this, 'height', 400);
+				}
+				oDiv2.onmouseout = function () {
+					startMove(this, 'height', 200);
+				}
+				// alert(getStyle(oDiv1, 'width'));
+			}
+		}
+		function getStyle(obj, name) {                                       // 获取样式值的函数            
+			if (obj.currentStyle) {                      		             // Opera            
+				return obj.currentStyle[name];
+			} else {
+				return getComputedStyle(obj, false)[name];                   // Safari/WebKit
+			}
+		}
+		function startMove(obj, attr, iTarget) {
+			clearInterval(obj.timer);
+			obj.timer = setInterval(function () {
+				var speed = (iTarget - parseInt(getStyle(obj, attr))) / 10;  // 之所以加上parseInt去掉单位px
+				speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+				if (parseInt(getStyle(obj, attr)) == iTarget) {
+					clearInterval(obj.timer);
+				} else {
+					obj.style[attr] = parseInt(getStyle(obj, attr)) + speed + 'px';
+				}
+			}, 30);
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 100px;
+			height: 50px;
+			background: red;
+			margin: 20px;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var oDiv = document.getElementsByTagName('div');
+			for (var i = 0; i < oDiv.length; i++) {
+				oDiv[i].timer = null;                         // 每个对象都开一个定时器
+				oDiv[i].onmouseover = function () {
+					startMove(this, 400);
+				}
+				oDiv[i].onmouseout = function () {
+					startMove(this, 100);
+				}
+			}
+		}
+		function startMove(obj, iTarget) {
+			clearInterval(obj.timer);                         // 关闭对象定时器
+			obj.timer = setInterval(function () {
+				var speed = (iTarget - obj.offsetWidth) / 10; 
+				speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+				if (obj.offsetWidth === iTarget) {
+					clearInterval(obj.timer);
+				} else {
+					obj.style.width = obj.offsetWidth + speed + 'px';
+				}
+			}, 30);
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+</body>
+</html>

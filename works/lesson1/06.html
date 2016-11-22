@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			width: 300px;
+			margin: 0 auto;
+		}
+		#div1 {
+			border: 1px solid #aaa;
+			width: 150px;
+			height: 150px;
+			color: #ffffff;
+			background: #000000;
+		}
+	</style>
+	<script>
+		var changeStyle = function (elem, name, value) {
+			elem.style[name] = value;
+		}
+		window.onload = function () {
+			var oDiv = document.getElementById("div1");
+			var oInput = document.getElementsByTagName("input");
+			var oBtn = document.getElementsByTagName("button");
+			oBtn[0].onclick = function () {                  // 调用函数
+				changeStyle(oDiv, oInput[0].value, oInput[1].value)
+			}
+			oBtn[1].onclick = function () {
+				oDiv.removeAttribute("style");               //移除更改的style属性值
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="outer">
+		<p>
+			<label>属性名：</label>
+			<input type="text" value="background"/>
+		</p>
+		<p>
+			<label>属性值：</label>
+			<input type="text" value="blue">
+		</p>
+		<p>
+			<button>确定</button>
+			<button>重置</button>
+		</p>
+	</div>
+	<div id="div1">在上方输入框输入“属性名”及“属性值”，点击确定按钮查看效果。</div>
+</body>
+</html>

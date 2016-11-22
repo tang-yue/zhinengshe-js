@@ -1,0 +1,9 @@
+body {
+	background: #000000;
+}
+div {
+	background: blue;
+	width: 50px;
+	height: 100px;
+	border: 1px solid #000000;
+}

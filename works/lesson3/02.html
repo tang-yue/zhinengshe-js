@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1 {
+			width: 100px;
+			height: 100px;
+			background: red;
+			float: left;
+		}
+		#div2 {
+			float: left;
+			width: 200px;
+			height: 200px;
+			background: #aaa;
+			margin-left: 30px;
+			display: none;
+		}
+	</style>
+	<script>
+		// 采用的setTimeout，只显示一次，而setInterval是间断的显示。
+		// 整体思路是先根据自己看到的效果写代码，之后观察相同的地方合并。
+		window.onload = function () {
+			var oDiv1 = document.getElementById("div1");
+			var oDiv2 = document.getElementById("div2");
+			var timer = null;
+			oDiv1.onmouseover = oDiv2.onmouseover = function () {
+				oDiv2.style.display = "block";
+				clearTimeout(timer);
+			}
+			oDiv1.onmouseout = oDiv2.onmouseout = function () {
+				timer = setTimeout(function () {
+					oDiv2.style.display = "none";
+				}, 1000);
+			}
+		}
+	</script>
+</head>
+
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+</body>
+</html>

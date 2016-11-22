@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background: red;
+			float: left;
+			margin: 10px;
+			border-width: 1px;
+			border: 1px solid black;
+			font-size: 12px;
+			filter: alpha(opacity: 30);
+			opacity: 0.3;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var oDiv = document.getElementsByTagName('div');
+			var oDiv1 = document.getElementById('div1');
+			for (var i = 0; i < oDiv.length; i++) {
+				oDiv[i].timer = null;
+				// 可以是width，height，fontSize，borderWidth。
+				oDiv1.onmouseover = function () {
+					startMove(this, 'opacity', 70);
+				}
+				oDiv1.onmouseout = function () {
+					startMove(this, 'opacity', 30);
+				}
+			}
+		}
+		function getStyle(obj, name) {
+			if (obj.currentStyle) {
+				return obj.currentStyle[name];
+			} else {
+				return getComputedStyle(obj, false)[name];
+			}
+		}
+		function startMove(obj, attr, iTarget) {
+			clearInterval(obj.timer);
+			obj.timer = setInterval(function () {
+				if (attr === 'opacity') {
+					cur = Math.round(getStyle(obj, attr) * 100);
+					// 这里采用的是四舍五入法。针对计算机不能精确的存储小数
+				} else {
+					cur = parseInt(getStyle(obj, attr));
+				}
+				var speed = (iTarget - cur) / 10;
+				speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+				if (cur == iTarget) {
+					clearInterval(obj.timer);
+				} else {
+					if (attr === 'opacity') {
+						obj.style.filter = 'alpha(opacity:' + cur + speed +')';
+						obj.style.opacity = (cur + speed) / 100;
+						document.getElementById('text1').value = getStyle(obj, attr) * 100;
+						// alert(0.7 * 100);
+					} else {
+						obj.style[attr] = cur + speed + 'px';
+					}
+				}
+			}, 30);
+		}
+	</script>
+</head>
+<body>
+	<input id="text1" type="text">
+	<div id="div1">变透明度</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			color: #ffffff;
+			font-weight: bold;
+			background: #000000;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var aImg = document.getElementsByTagName("img");
+			// 作用1: 考虑到会有一位数。 作用2：考虑到要变成字符串存在数组里。
+			function toDou(n) {
+				if (n < 10) {
+					return "0" + n;
+				}
+				else {
+					return "" + n;
+				}
+			}
+			var tick = function() {
+				var oDate = new Date();
+				var str = [];
+				str = toDou(oDate.getHours()) + toDou(oDate.getMinutes()) + toDou(oDate.getSeconds());
+				for (var i = 0; i < aImg.length; i++) {
+						aImg[i].src = "images/" + str.charAt(i) + ".png";    // str[i]只有高版本的浏览器才支持，所以换成了str.charAt(i).
+				}
+			}
+			setInterval(tick, 1000);
+			// 为了刚刷新的时候不是出现000000；所以下面调用函数
+			tick();                   
+		}
+	</script>
+</head>
+<body>
+<div id="div1">
+	<img src="images/0.png">
+	<img src="images/0.png">
+	:
+	<img src="images/0.png">
+	<img src="images/0.png">
+	:
+	<img src="images/0.png">
+	<img src="images/0.png">
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	// 主要代码运用了if判断语句
+		window.onload = function () {
+			var allSelect = document.getElementById("allSelect");
+			var invertSelect = document.getElementById("invertSelect");
+			var noSelect = document.getElementById("noSelect");
+			var oDiv = document.getElementById("div1")
+			var obj = oDiv.getElementsByTagName("input")
+			allSelect.onclick = function () {
+				for (var i = 0; i < obj.length; i++) {
+					if (obj[i].checked == false) {
+						obj[i].checked = true;
+					}
+				}
+			}
+			invertSelect.onclick = function () {
+				for (var i = 0; i < obj.length; i++) {
+					if (obj[i].checked == true) {
+						obj[i].checked = false;
+					}
+					else {
+						obj[i].checked = true;
+					}
+				}
+			}
+			noSelect.onclick = function () {
+				for (var i = 0; i < obj.length; i++) {
+					if (obj[i].checked = true) {
+						obj[i].checked = false;
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="全选" id="allSelect"><br/>
+	<input type="button" value="反选" id="invertSelect"><br/>
+	<input type="button" value="不选" id="noSelect"><br/>
+	<div id="div1">
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	<input type="checkbox"><br/>
+	</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	ul, li {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	#tab {
+		width: 240px;
+		border: 1px solid gray;
+		margin: 0 auto;
+		padding: 15px 15px 10px  15px;
+		background: #D8D8D8;
+		overflow: hidden;
+	}
+	#tab ul {
+		width: 300px;
+	}
+	#tab ul li {
+		width: 70px;
+		background: #000000;
+		color: #ffffff;
+		float: left;
+		margin: 5px;
+		text-align: center;
+		border: 1px solid #000000;
+	}
+	#txt {
+		clear: both;
+		width: 230px;
+		border: 1px solid #ffffff;
+		background: #f0f0f0;
+		position: relative;
+		left: 5px;
+		margin-top: 30px;
+	}
+	#tab .active {
+		color: red;
+		background: #ffffff;
+	}
+		
+	</style>
+	<script>
+		window.onload = function () {
+			var oTab = document.getElementById("tab");
+			var oLi = document.getElementsByTagName("li");
+			var oTxt = document.getElementById("txt");
+			var oP = oTxt.getElementsByTagName("p")[0];
+			var oArray = [
+					"一月正则表达式，应用高级表单验证技术，智能课堂。www.zhinengketang.com。",
+					"二月正则表达式，应用高级表单验证技术，智能课堂。www.zhinengketang.com。",
+					"三月正则表达式，应用高级表单验证技术，智能课堂。www.zhinengketang.com。",
+					"四月正则表达式，应用高级表单验证技术，智能课堂。www.zhinengketang.com。",
+					"五月正则表达式，应用高级表单验证技术，智能课堂。www.zhinengketang.com。",
+					"六月正则表达式，应用高级表单验证技术，智能课堂。www.zhinengketang.com。",
+					"七月正则表达式，应用高级表单验证技术，智能课堂。www.zhinengketang.com。",
+					"八月正则表达式，应用高级表单验证技术，智能课堂。www.zhinengketang.com。",
+					"九月正则表达式，应用高级表单验证技术，智能课堂。www.zhinengketang.com。",
+					"十月正则表达式，应用高级表单验证技术，智能课堂。www.zhinengketang.com。",
+					"十一月正则表达式，应用高级表单验证技术，智能课堂。www.zhinengketang.com。",
+					"十二月正则表达式，应用高级表单验证技术，智能课堂。www.zhinengketang.com。",
+					];
+			for (var i = 0; i < oLi.length; i++) {
+				oLi[i].index = i;
+				oLi[i].onclick = function () {
+					for (var i = 0; i < oLi.length; i++) {       // 先把所有的li的active属性值清空
+						oLi[i].className = "";
+					}
+					this.className = "active";
+					oTxt.innerHTML = "<strong>" + (this.index + 1) + "月的活动</strong><p>" + oArray[this.index] + "</p>";
+					// 因为是从0开始的，而不是从1，所以需要加1
+				}
+			}
+		}
+	</script>	
+</head>
+<body>
+	<div id="tab" class="calendar">
+		<ul>
+			<li><h2>1</h2><p>JAN</p></li>
+			<li><h2>2</h2><p>FER</p></li>
+			<li><h2>3</h2><p>MAR</p></li>
+			<li><h2>4</h2><p>APR</p></li>
+			<li><h2>5</h2><p>MAY</p></li>
+			<li><h2>6</h2><p>JUN</p></li>
+			<li><h2>7</h2><p>JUL</p></li>
+			<li><h2>8</h2><p>AUG</p></li>
+			<li><h2>9</h2><p>SEP</p></li>
+			<li><h2>10</h2><p>OCT</p></li>
+			<li><h2>11</h2><p>NOv</p></li>
+			<li class="active"><h2>12</h2><p>DEC</p></li>
+		</ul>
+		<div id="txt">
+			<strong>12</strong>月的活动
+			<p>十二月正则表达式，应用高级表单验证技术，智能课堂。www.zhinengketang.com</p>
+		</div>
+	</div>	
+</body>
+</html>

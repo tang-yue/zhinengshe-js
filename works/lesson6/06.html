@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function myAddEvent(obj, ev, fn) {
+			if (obj.attachEvent) {                       // IE
+				obj.attachEvent('on' + ev, fn);
+			} else {                                     // FF Chrome
+				obj.addEventListener(ev, fn, false);
+			}
+		}
+		window.onload = function () {
+			var oBtn = document.getElementById('btn')
+			myAddEvent(oBtn, 'click', function () {
+				alert('a');
+			});
+			myAddEvent(oBtn, 'click', function () {
+				alert('b');
+			});
+		}
+	</script>
+</head>
+<body>
+	<input id="btn" type="button" value="按钮">
+</body>
+</html>

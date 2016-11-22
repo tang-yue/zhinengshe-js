@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1 {
+			width: 200px;
+			height: 200px;
+			background: red;
+			position: absolute;
+		}
+	</style>
+	<script>
+	    // 整体思路先是鼠标点击下，div移动，鼠标抬起，取消事件。
+	    // 问题1，鼠标会拖出去，第二鼠标移到浏览器上，不在div上
+		window.onload = function () {
+			var oDiv = document.getElementById('div1');
+			var disX = 0;
+			var disY = 0;
+			oDiv.onmousedown = function (ev) {
+				var oEvent = ev || event;
+				disX = oEvent.clientX - oDiv.offsetLeft;
+				disY = oEvent.clientY - oDiv.offsetTop;
+				document.onmousemove = function (ev) {
+					var oEvent = ev || event;
+					var l = oEvent.clientX - disX;
+					var t = oEvent.clientY - disY;
+					// 限制div拖出页面的条件
+					if (l < 0) {
+						l = 0;
+					} else if (l > document.documentElement.clientWidth - oDiv.offsetWidth) {
+						l = document.documentElement.clientWidth - oDiv.offsetWidth;
+					}
+					if (t < 0) {
+						t = 0;
+					} else if (t > document.documentElement.clientHeight - oDiv.offsetHeight) {
+						t = document.documentElement.clientHeight - oDiv.offsetHeight;
+					}
+					oDiv.style.left = l + 'px';
+					oDiv.style.top = t + 'px';
+				}
+				document.onmouseup = function () {
+					document.onmousemove = null;
+					document.onmouseup = null;
+				}
+				// 当鼠标按下的时候事件开始，这个语句是为了阻止FF上拖拽空div的bug。
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

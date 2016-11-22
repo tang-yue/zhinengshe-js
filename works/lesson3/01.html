@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1 {
+			width: 200px;
+			height: 200px;
+			background: red;
+			position: absolute;
+			top: 50px;
+			left: 50px;
+			margin: 50px;
+		}
+	</style>
+	<script>
+		function move() {
+			var oDiv = document.getElementById("div1");
+			oDiv.style.left = oDiv.offsetLeft + 10 + "px";       
+			/* offsetLeft,获取的是影响这个物体的位置的得
+			出来的最终结果，即左间距，绝对定位left的值加上
+			margin的值，综合考虑. */
+		}
+		window.onload = function () {
+	        var oBtn1 = document.getElementById("btn1");
+	        var oBtn2 = document.getElementById("btn2");
+			var timer = null;
+	        oBtn1.onclick = function () {     
+				timer = setInterval(move, 2000);
+	    	}
+	        oBtn2.onclick = function () {
+	        	clearInterval(timer);
+	        }
+	    } 
+	</script>
+</head>
+<body>
+<input id="btn1" type="button" value="开启">	
+<input id="btn2" type="button" value="关闭">
+<div id="div1"></div>	
+</body>
+</html>

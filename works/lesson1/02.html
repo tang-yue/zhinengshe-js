@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function () {
+			var oTxt = document.getElementById("txt");
+			var oBtn = document.getElementById("btn");
+			oBtn.onclick = function () {
+				oTxt.value = "abcdefg";
+			}
+		}
+	</script>
+</head>
+<body>
+	<input id="txt" type="text" >
+	<input id="btn" type="button" value="改文字">
+</body>
+</html>

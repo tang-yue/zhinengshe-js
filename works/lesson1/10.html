@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	div {
+		width: 230px;
+		height: 350px;
+		border: 1px solid #000000;
+		background: #aaa;
+		display: none;
+	}
+	.box {
+		background: yellow;
+	}
+	</style>
+	<script>
+		window.onload = function () {       
+			var oInput = document.getElementsByTagName("input");
+			var oDiv = document.getElementsByTagName("div");
+			for (var i = 0; i < oInput.length; i++) {
+					oInput[i].index = i;
+				oInput[i].onclick = function () {
+					for (var i = 0; i < oDiv.length; i++) {
+						oInput[i].className = "";                         // 先把所有的属性值清空
+						oDiv[i].style.display = "none";
+					}
+						oDiv[this.index].style.display = "block"          // 再显示属性值   
+						this.className = "box";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="教育">
+	<input type="button" value="培训">
+	<input type="button" value="新闻">
+	<input type="button" value="专栏">
+	<div style="display: block;">1111</div>
+	<div>2222</div>
+	<div>3333</div>
+	<div>4444</div>
+	
+</body>
+</html>

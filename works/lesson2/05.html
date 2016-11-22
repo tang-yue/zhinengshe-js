@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1 {
+			width: 200px;
+			background: red;
+			height: 200px;
+		}
+	</style>
+	<script>
+		function getStyle(obj, name) {
+			if (obj.currentStyle) {                             // IE
+				return obj.currentStyle[name];
+			}
+			else {
+				return getComputedStyle(obj, false)[name];      // Chrome      
+			}
+		}
+		window.onload = function () {
+			var oDiv = document.getElementById("div1");
+			// 复合样式： background、border
+			// 单一样式： width、height、position
+			// 单一样式可以取出来而复合样式是取不出来的
+			alert(getStyle(oDiv, 'width'));
+		}
+	</script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#parent {
+			width: 600px;
+			height: 20px;
+			background: #ccc;
+			position: relative;
+			margin: 0 auto;
+		}
+		#div1 {
+			width: 20px;
+			height: 20px;
+			background: red;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		#div2 {
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+			overflow: hidden;
+			position: relative;
+		}
+		#div3 {
+			position: absolute;
+			left: 0px;
+			top: -40px;
+			padding: 4px;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var oParent = document.getElementById('parent');
+			var oDiv = document.getElementById('div1');
+			var oDiv2 = document.getElementById('div2');
+			var oDiv3 = document.getElementById('div3');
+			var disX = 0;
+			var disY = 0;
+			oDiv.onmousedown = function (ev) {
+				var oEvent = ev || event;
+				disX = oEvent.clientX - oDiv.offsetLeft;
+				disY = oEvent.clientY - oDiv.offsetTop;
+				document.onmousemove = function (ev) {
+					var oEvent = ev || event;
+					var l = oEvent.clientX - disX;
+					var t = oEvent.clientY - disY;
+					if (l < 0) {
+						l = 0;
+					} else if (l > oParent.offsetWidth - oDiv.offsetWidth) {
+						l = oParent.offsetWidth - oDiv.offsetWidth;
+					}
+					if (t < 0) {
+						t = 0;
+					} else if (t > oParent.offsetHeight - oParent.offsetHeight) {
+						t = oParent.offsetHeight - oParent.offsetHeight;
+					}
+					oDiv.style.left = l + 'px';
+					oDiv.style.top = t + 'px';
+					var scale = l / (oParent.offsetWidth - oDiv.offsetWidth);
+					document.title = scale;
+					oDiv3.style.top = -(scale * (oDiv3.offsetHeight - oDiv2.offsetHeight)) + 'px';
+					
+				}
+				document.onmouseup = function () {
+					document.onmousemove = null;
+					document.onmouseup = null;
+				}
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="parent">
+		<div id="div1"></div>
+	</div>
+	<div id="div2">
+		<div id="div3">
+7点53分，我发现我越来越不能保证在7点的时候开始工作。而必须要调到8点。
+我越来越喜欢有规律的生活，因为每一个时刻，做的事情，包括的最后的结果，
+都会直接影响的我情绪，进而影响到我工作的效率。可以说的我的专注力实在是不怎么样。今天我很认真的吃早饭。吃完后肚子一点都不胀，以前同样的饭吃完，肚子会胀胀的。不知不觉中心情也变好了。昨天晚饭主要是因为自己第一次煮饭，煮的有点多。又吃的特别快。山药反倒没有养着胃，吃多了，产生更多的胃酸。反而加重了。而且现在发现，煮饭真的是特别的麻烦，你必须在某个时刻把食材准备好，你必须在某个时刻要去淘米。所以你会变得在工作的时候，很关注时间的变化。淘米只需要花费5到10分钟，而你淘米前5至10分钟，你的心里已经不在工作上了。实际上花费了20分钟这样。而且在4点半吃饭这个规律定的似乎有点不太明智。因为这个时间点，是你工作的的时间，比如4点半，吃完饭，你可能就去健身了。你不知道该再次从什么时间开始工作。所以我的晚饭时间改为晚上5点钟，出去喝粥。这个不会耽误你很多时间，我发现在尝试了很多方法之后，还是这种方法的性价比最高。我晚上不想吃冷的水果，清淡点的那么只有粥了。最近在看短篇小说罗生门，我想用边角料的时间快速看完。老友记提醒你还在你的手机里。现在越来越发觉衡量一个的是怎样的，能力，才能。那就是从三大块上衡量。第一他看过的书，第二他看过的电影，第三他专业技术，第四，他是否运动，是否和我一样关注健康。每天的生活是否和我一样有规律。看来还是要找一个和我相似的人，才是我最终的选择。
+17点46分
+下午，上实验课，一个下午都在看小说，看得很爽，把罗生门的电子书给看完了，但是觉得好像少，似乎，应该再去图书馆找纸质书了。好了我要开始编码了，从6点至10点半。这样我这一天才达到7个半小时的学习前端时间。加油。
+不正确看书，会导致眼睛近视。不正确用电脑，会导致脊椎疼。
+		</div>
+	</div>
+</body>
+</html>

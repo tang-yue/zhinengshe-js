@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 100px;
+			border: 1px solid #aaa;
+			display: none;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var oBtn = document.getElementById("btn");
+			var oDiv = document.getElementById("div1");
+			oBtn.onclick = function () {
+				if (oDiv.style.display == "block") {
+					oDiv.style.display = "none"
+				}
+				else {
+					oDiv.style.display = "block";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input id="btn" type="button" value="菜单栏">
+	<div id="div1"><p>feoijeoif<br/>fejoijfoiej<br/>fjeoifo<br/></p></div>	
+</body>
+</html>

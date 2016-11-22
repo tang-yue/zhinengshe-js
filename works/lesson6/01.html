@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1 {
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top: 50px;
+		}
+		.box {
+			border: 1px dashed black;
+			position: absolute;
+		}
+	</style>
+	<script>
+	    // 整体思路先是鼠标点击下，div移动，鼠标抬起，取消事件。
+	    // 问题1，鼠标会拖出去，第二鼠标移到浏览器上，不在div上
+		window.onload = function () {
+			var oDiv = document.getElementById('div1');
+			var disX = 0;
+			var disY = 0;
+			oDiv.onmousedown = function (ev) {
+				var oEvent = ev || event;
+				disX = oEvent.clientX - oDiv.offsetLeft;
+				disY = oEvent.clientY - oDiv.offsetTop;
+				// 创建div
+				var oBox = document.createElement('div');
+				oBox.className = 'box';
+				// 新创建的div的宽高度，注意减去border。
+				oBox.style.width = oDiv.offsetWidth - 2 + 'px';
+				oBox.style.height = oDiv.offsetHeight - 2 + 'px';
+				// 新创建的div是默认在左上角但是，不是我们想要的。
+				oBox.style.left = oDiv.offsetLeft + 'px';
+				oBox.style.top = oDiv.offsetTop + 'px';
+				// 将新创建的div追加到body上
+                document.body.appendChild(oBox);
+
+				document.onmousemove = function (ev) {
+					var oEvent = ev || event;
+					var l = oEvent.clientX - disX;
+					var t = oEvent.clientY - disY;
+					// 先移动的是box
+					oBox.style.left = l + 'px';
+					oBox.style.top = t + 'px';
+				}
+				document.onmouseup = function () {
+					document.onmousemove = null;
+					document.onmouseup = null;
+					// 鼠标抬起，div是跟着框移动的
+					oDiv.style.left = oBox.offsetLeft + 'px';
+					oDiv.style.top = oBox.offsetTop + 'px';
+					// 当鼠标抬起的时候，要将新创建的div清除
+					document.body.removeChild(oBox);
+				}
+				// 当鼠标按下的时候事件开始，这个语句是为了阻止FF上拖拽空div的bug。
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

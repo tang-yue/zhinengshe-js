@@ -1,0 +1,17 @@
+body { background: #666; } ul,li { padding: 0; margin: 0; list-style: none; } img { border: 0; }
+.play { width: 400px; height: 430px; background: #222; font: 12px Arial; margin: 50px auto 0; cursor: pointer;}
+.big-pic { width: 400px; height: 320px; position: relative; overflow: hidden; border-bottom: 1px solid #ccc;}
+.big-pic li { width: 400px; height: 320px; overflow: hidden; position: absolute; left: 0; top: 0; z-index: 0; background: url('images/loading.gif') no-repeat center center;}
+
+.big-pic .prev { width: 60px; height: 60px; position: absolute; top: 130px; left: 10px; z-index: 3001; filter:alpha(opacity:0); opacity: 0; background: url('images/btn.gif') no-repeat; }
+.big-pic .next { width: 60px; height: 60px; position: absolute; top: 130px; right: 10px; z-index: 3001; filter:alpha(opacity:0); opacity: 0; background: url('images/btn.gif') no-repeat 0 -60px;}
+.mark-left { width: 200px; height: 320px; position: absolute; left: 0; bottom: 0; background: red; filter: alpha( opacity:0); opacity: 0; z-index: 3000;}
+
+.mark-right { width: 200px; height: 320px; position: absolute; right: 0; bottom: 0; background: green; filter: alpha( opacity:0); opacity: 0; z-index: 3000;}
+.big-pic .text { position: absolute; left: 10px; top: 302px;color: #ccc; z-index: 3000; }
+.big-pic .length { position: absolute; right: 10px; bottom: 4px;color: #ccc; z-index: 3000;}
+.big-pic .bg { width: 400px; height: 25px; position: absolute;  left: 0; bottom: 0; background: #000; filter: alpha(opacity: 60); opacity: 0.6; z-index: 2999;}
+.small-pic { width: 390px; height: 94px; position: relative; top: 7px; left: 10px; overflow: hidden;}
+.small-pic ul { width: 390px; height: 94px; position: absolute; left: 0; right: 0;}
+.small-pic ul li { width: 120px; height: 94px; float: left; background: url('images/loading.gif') no-repeat center center;padding-right: 10px; filter: alpha(opacity: 30); opacity: 0.3; }
+.small-pic ul li img { width: 120px; height: 94px; }

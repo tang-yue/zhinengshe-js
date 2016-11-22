@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function() {
+			var oUl = document.getElementById('ul1');
+			alert(oUl.childNodes.length);                    // 9个注意是包含空的文本节点 
+			alert(oUl.childNodes.nodeType);                  // 这条代码显示underfined
+			for (var i = 0; i < oUl.childNodes.length; i++) {
+				// alert(oUl.childNodes[i].nodeType);        // 这条代码显示3,1,3,1循环。
+				 if (oUl.childNodes[i].nodeType == 1) {
+					oUl.childNodes[i].style.background = 'red';
+				}  // 针对的是IE6-8  IE7没有问题*/ 
+				// oUl.children[i].style.background = 'red';    // chrome下显示一个小错误，但是效果能显示出来，仅仅包含的是元素节点
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<ul id="ul1">
+		fwieuro<li>fjeoifjoeiw</li>fweijfo
+		<li>fjeowifj</li>feoifepowifpw
+		<li>kifjoei</li>fewoi
+		<li>fwejoi</li>fwoir
+	</ul>
+</body>
+</html>

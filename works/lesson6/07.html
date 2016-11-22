@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1 {
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+		}
+	</style>
+	<script>
+		// 这个整体的思路是加入setCapture，这样就不会拖出div了，同时还要注意捕获
+		// 之后的解锁，但是由于setCapture仅仅支持IE。因此要用兼容。
+		window.onload = function () {
+			var oDiv = document.getElementById('div1') 
+			var disX = 0;
+			var disY = 0;
+			oDiv.onmousedown = function (ev) {
+				var oEvent = ev || event;
+				disX = oEvent.clientX - oDiv.offsetLeft;
+				disY = oEvent.clientY - oDiv.offsetTop;
+				if (oDiv.setCapture) {                             // IE
+					oDiv.onmousemove = mouseMove;
+					oDiv.onmouseup = mouseUp;
+					oDiv.setCapture();                      
+				} else {                                           // Chrome
+					document.onmousemove = mouseMove;
+					document.onmouseup = mouseUp;
+				}
+				function mouseMove(ev) {
+					var oEvent = ev || event;
+					var l = oEvent.clientX - disX;
+					var t = oEvent.clientY - disY;
+
+					oDiv.style.left = l + 'px';
+					oDiv.style.top = t + 'px';
+				}
+				function mouseUp() {
+					document.onmousemove = null;
+					document.onmouseUp = null;
+					if (oDiv.releaseCapture) {
+						oDiv.releaseCapture;
+					}
+				}
+				return false;
+			};
+		}
+	</script>
+</head>
+<body>
+	wiefpoisufpiflwjrli<div id="div1">fwkherfilwruow</div>fwefwlhflsfbkj
+</body>
+</html>
